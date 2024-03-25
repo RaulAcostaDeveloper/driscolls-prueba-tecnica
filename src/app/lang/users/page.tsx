@@ -36,27 +36,33 @@ export default function UsersPage() {
                 <div className="innerNewStyleTable">
                     <div className="inner">
                         <button className="createNewUserButton" onClick={ () => handleClickCreateNewUser() }>{ language.CREATE_USER }</button>
-                        { users.map( (user, index) => 
-                            <div className="userInner" key={index}>
-                                <Image className="userImage" src={user.srcImage} alt="user image" width={50} height={50}/>
-                                <div className="leftSection">
-                                    <div>
-                                        <div className="name">{user.name}</div>
-                                        <div>
-                                            <button className="buttonColumn" title={ language.EDIT_USER } onClick={ () => handleClickEditUser(user.id) }>
-                                                <Image src={'/icons/edit.png'} alt="Edit icon" width={30} height={30}/>
-                                            </button>
-                                            <Link  className="buttonColumn" href={'/lang/users/' + user.id} title={ language.VIEW_USER }>
-                                                <Image src={'/icons/goTo.png'} alt="View icon" width={30} height={30}/>
-                                            </Link>
-                                            <button className="buttonColumn" title={ language.DELETE_USER } onClick={ () => handleClickDeleteUser(user.id) }>
-                                                <Image src={'/icons/delete.png'} alt="Delete icon" width={30} height={30}/>
-                                            </button>
+                        { users.length ?
+                            <>
+                                { users.map( (user, index) =>
+                                    <div className="userInner" key={index}>
+                                        <Image className="userImage" src={user.srcImage} alt="user image" width={50} height={50}/>
+                                        <div className="leftSection">
+                                            <div>
+                                                <div className="name">{user.name}</div>
+                                                <div>
+                                                    <button className="buttonColumn" title={ language.EDIT_USER } onClick={ () => handleClickEditUser(user.id) }>
+                                                        <Image src={'/icons/edit.png'} alt="Edit icon" width={30} height={30}/>
+                                                    </button>
+                                                    <Link  className="buttonColumn" href={'/lang/users/' + user.id} title={ language.VIEW_USER }>
+                                                        <Image src={'/icons/goTo.png'} alt="View icon" width={30} height={30}/>
+                                                    </Link>
+                                                    <button className="buttonColumn" title={ language.DELETE_USER } onClick={ () => handleClickDeleteUser(user.id) }>
+                                                        <Image src={'/icons/delete.png'} alt="Delete icon" width={30} height={30}/>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        )}
+                                )}
+                            </>
+                            :
+                            <div className="notUsers">{ language.NOT_USERS_YET }</div>
+                        }
                     </div>
                 </div>
             </div>
