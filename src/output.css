@@ -1,0 +1,489 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: consolas;
+}
+
+button {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+h1 {
+  text-align: center;
+}
+
+.Header {
+  display: flex;
+  align-items: start;
+  height: 45px;
+  position: relative;
+  z-index: 1;
+}
+.Header .buttonMenu {
+  background-color: transparent;
+  border: none;
+  margin-left: 10px;
+  padding-top: 10px;
+  z-index: 1;
+}
+.Header .imgContainer {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Header .imgContainer .headerImg {
+  width: 150px;
+  height: 45px;
+}
+.Header .menuScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(19, 19, 19, 0.185);
+  z-index: 2;
+  cursor: pointer;
+}
+.Header .menuScreen .inner {
+  height: 100%;
+  width: 280px;
+  background-color: white;
+  box-shadow: 4px 4px rgba(19, 19, 19, 0.185);
+}
+.Header .menuScreen .inner .header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid wheat;
+  background-color: wheat;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.Header .menuScreen .inner .section {
+  border-bottom: 1px solid wheat;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.Header .menuScreen .inner .section:hover {
+  background-color: wheat;
+}
+.Header .menuScreen .inner img {
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .Header {
+    height: 91px;
+  }
+  .Header .imgContainer .headerImg {
+    width: 300px;
+    height: 91px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .Header .menuScreen .inner {
+    width: 380px;
+  }
+  .Header .menuScreen .inner h3 {
+    font-size: 20px;
+    margin-left: 30px;
+  }
+  .Header .menuScreen .inner img {
+    margin-left: 10px;
+  }
+  .Header .menuScreen .inner .section {
+    font-size: 20px;
+    height: 60px;
+  }
+}
+.userForm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(19, 19, 19, 0.185);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.userForm .inner {
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  background-color: white;
+  width: 300px;
+  min-height: 200px;
+  position: relative;
+  border-radius: 4px;
+}
+.userForm .inner .buttonClose {
+  background-color: brown;
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+}
+.userForm .inner h3 {
+  margin-top: 20px;
+  text-align: center;
+}
+.userForm .inner .form {
+  padding: 10px;
+}
+.userForm .inner .form input {
+  width: 270px;
+  padding: 5px;
+}
+.userForm .inner .form .error {
+  color: red;
+}
+.userForm .inner .containerButton {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+.userForm .inner .containerButton button {
+  margin: 10px;
+  padding: 5px;
+  background-color: antiquewhite;
+  border-radius: 2px;
+}
+
+.containerDeleteUserModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(19, 19, 19, 0.185);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.containerDeleteUserModal .inner {
+  width: 300px;
+  min-height: 200px;
+  background-color: white;
+  position: relative;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.containerDeleteUserModal .inner h3 {
+  margin-top: 20px;
+  text-align: center;
+}
+.containerDeleteUserModal .inner .containerButtons {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.containerDeleteUserModal .inner .containerButtons button {
+  padding: 20px 30px;
+  border-radius: 2px;
+}
+.containerDeleteUserModal .inner .containerButtons button:hover {
+  border-bottom: 1px solid rgba(19, 19, 19, 0.185);
+}
+.containerDeleteUserModal .inner .containerButtons .yesButton {
+  background-color: antiquewhite;
+}
+.containerDeleteUserModal .inner .containerButtons .noButton {
+  background-color: transparent;
+}
+
+.newStyleTableContainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.newStyleTableContainer .innerNewStyleTable {
+  width: 280px;
+  border-radius: 8px;
+  border: 1px solid black;
+  background-color: rgb(247, 215, 165);
+  padding: 10px;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.newStyleTableContainer .innerNewStyleTable .inner {
+  width: 100%;
+  background-color: rgb(253, 253, 253);
+  border: 1px solid black;
+  position: relative;
+  border-radius: 8px;
+  padding-top: 30px;
+}
+.newStyleTableContainer .innerNewStyleTable .inner .createNewUserButton {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  padding: 10px;
+  background-color: rgb(247, 215, 165);
+  border-radius: 4px;
+  font-weight: bold;
+  border: 1px solid black;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.newStyleTableContainer .innerNewStyleTable .inner .userInner {
+  padding: 15px;
+  display: flex;
+}
+.newStyleTableContainer .innerNewStyleTable .inner .userInner .userImage {
+  padding: 10px;
+  border: 1px solid rgba(19, 19, 19, 0.185);
+  border-radius: 2px;
+}
+.newStyleTableContainer .innerNewStyleTable .inner .userInner .leftSection {
+  width: 100%;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+.newStyleTableContainer .innerNewStyleTable .inner .userInner .leftSection .name {
+  font-weight: bold;
+}
+.newStyleTableContainer .innerNewStyleTable .inner .userInner .leftSection .buttonColumn {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  background-color: transparent;
+  border: none;
+}
+.newStyleTableContainer .innerNewStyleTable .inner .userInner .leftSection .buttonColumn:hover {
+  border-bottom: 1px solid rgba(19, 19, 19, 0.185);
+}
+.newStyleTableContainer .innerNewStyleTable .inner .userInner .leftSection a {
+  position: relative;
+  top: 2px;
+}
+
+@media only screen and (min-width: 768px) {
+  .newStyleTableContainer .innerNewStyleTable {
+    width: 400px;
+  }
+}
+.UserPage .portadaContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 60px;
+}
+.UserPage .portadaContainer img {
+  width: 90%;
+  height: auto;
+  max-width: 1000px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.UserPage .fotoContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  bottom: 75px;
+}
+.UserPage .fotoContainer img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid rgba(19, 19, 19, 0.185);
+  background-color: white;
+}
+.UserPage .fotoContainer h2 {
+  width: 100%;
+  text-align: center;
+}
+.UserPage .details {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.UserPage .details .inner {
+  background-color: rgba(19, 19, 19, 0.185);
+  width: 280px;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.UserPage .details .inner .buttonForSomething {
+  transition: 0.5s;
+  margin: 20px;
+  width: 80%;
+  height: 25px;
+  background-color: white;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}
+.UserPage .details .inner .buttonForSomething:hover {
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+@media only screen and (min-width: 768px) {
+  .UserPage .portadaContainer {
+    bottom: 100px;
+  }
+  .UserPage .fotoContainer {
+    bottom: 110px;
+  }
+  .UserPage .fotoContainer img {
+    width: 100px;
+    height: 100px;
+  }
+}
+.ErrorScreen {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.ErrorScreen h3 {
+  width: 100%;
+  text-align: center;
+}
+.ErrorScreen img {
+  width: 80%;
+  height: auto;
+}
+
+.NewPage .portadaContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 60px;
+}
+.NewPage .portadaContainer img {
+  width: 90%;
+  height: auto;
+  max-width: 1000px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.NewPage .newsContainer .newInside {
+  margin-bottom: 40px;
+}
+.NewPage .newsContainer .newInside .infoBlock {
+  width: 100%;
+}
+.NewPage .newsContainer .newInside .infoBlock .title {
+  width: 100%;
+}
+.NewPage .newsContainer .newInside .infoBlock .title h2 {
+  width: 100%;
+  font-family: cursive;
+  color: rgb(199, 53, 98);
+  text-align: center;
+}
+.NewPage .newsContainer .newInside .infoBlock .releaseDate {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(19, 19, 19, 0.185);
+}
+.NewPage .newsContainer .newInside .infoBlock .buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.NewPage .newsContainer .newInside .infoBlock .buttonContainer button {
+  padding: 15px;
+  border-radius: 20px;
+  background-color: rgb(199, 53, 98);
+  color: white;
+  border: none;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.NewPage .newsContainer .newInside .infoBlock .moreInfo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.NewPage .newsContainer .newInside .infoBlock .moreInfo p {
+  width: 70%;
+}
+.NewPage .newsContainer .newInside .imageBlock {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.NewPage .newsContainer .newInside .imageBlock img {
+  width: 80%;
+  max-width: 500px;
+  max-height: 500px;
+  height: fit-content;
+  border-radius: 10%;
+}
+
+@media only screen and (min-width: 768px) {
+  .NewPage .portadaContainer {
+    bottom: 190px;
+  }
+  .NewPage .newsContainer {
+    margin-top: -80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .NewPage .newsContainer .newInside {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+  }
+  .NewPage .newsContainer .newInside .infoBlock {
+    width: 50%;
+  }
+  .NewPage .newsContainer .newInside .imageBlock {
+    width: 50%;
+  }
+}
+
+/*# sourceMappingURL=output.css.map */

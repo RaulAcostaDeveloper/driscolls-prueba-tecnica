@@ -1,0 +1,15 @@
+.ErrorScreen {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    h3 {
+        width: 100%;
+        text-align: center;
+    }
+    img {
+        width: 80%;
+        height: auto;
+    }
+}
