@@ -5,12 +5,18 @@ import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import { LanguageContext } from "@/app/languageController";
 
-export default function NewPage({...props}) {
+interface DynamicRouteProps {
+    id: string;
+}
+type Props = {
+    params: DynamicRouteProps
+}
+export default function NewPage({ params }: Props) {
     const [newData, setNewData] = useState<NewType>();
     const [showMore, setShowMore] = useState(false);
 
     useEffect(()=>{
-        const { id } = props.params;        
+        const { id } = params;     
         const data = getNewById(Number(id));
         setNewData(data);
     },[]);

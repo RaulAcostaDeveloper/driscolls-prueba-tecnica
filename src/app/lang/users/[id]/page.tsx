@@ -11,7 +11,7 @@ interface DynamicRouteProps {
 type Props = {
     params: DynamicRouteProps
 }
-export default function UserPage( {params}: Props) {
+export default function UserPage({ params }: Props) {
     const [user, setUser] = useState<User>();
     const [openDetails, setOpenDetail] = useState(false);
 
