@@ -5,11 +5,12 @@ import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import { LanguageContext } from "@/app/languageController";
 
-export default function UserPage({...props}) {
+// @ts-ignore
+export default function UserPage(props) {
     const [user, setUser] = useState<User>();
     const [openDetails, setOpenDetail] = useState(false);
 
-    useEffect(()=>{
+    useEffect(()=>{        
         const { id } = props.params;        
         const userData = getUserById(Number(id));
         setUser(userData);
