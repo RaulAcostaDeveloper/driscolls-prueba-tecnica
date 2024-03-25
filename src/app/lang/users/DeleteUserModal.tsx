@@ -1,6 +1,6 @@
 import { LanguageContext } from "@/app/languageController";
-import { deleteUserById, getUserById } from "@/data/users"
-import { useContext, useEffect, useState } from "react"
+import { deleteUserById, getUserById } from "@/data/users";
+import { useContext, useEffect, useState } from "react";
 
 type Props = {
     deletingId: number|null,
