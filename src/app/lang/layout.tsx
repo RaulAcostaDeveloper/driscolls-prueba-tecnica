@@ -1,14 +1,16 @@
 'use client'
 
-import { useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { englishCopys, spanishCopys } from "../constants/copys";
-import { createContext } from "vm";
 
 type StringMap = {
   [key: string]: string;
 };
 
-export const LanguageContext = createContext();
+const MyContext = createContext(false);
+
+export const useMyContext = () => useContext(MyContext);
+
 export default function RootLayout({
     children,
   }: Readonly<{
@@ -17,20 +19,10 @@ export default function RootLayout({
 
   // Manejo del lenguaje (En este caso solo 2 así que se puede usar un toggle)
   const [english, setEnglish] = useState(true); // Podría soportar más lenguajes
-  const [copyData, setCopyData] = useState<StringMap>();
-
-  useEffect(()=>{
-    if (english) {
-      setCopyData(englishCopys);
-    } else {
-      setCopyData(spanishCopys);
-    }
-  },[english]);
-
   return (
-    <LanguageContext.Provider value = {{ copyData }}>
+    <MyContext.Provider value = { english }>
       {/* <button title="Change language">lang</button> */}
       {children}
-    </LanguageContext.Provider>
+    </MyContext.Provider>
   );
 }
