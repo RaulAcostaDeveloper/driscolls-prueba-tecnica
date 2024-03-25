@@ -36,7 +36,7 @@ Add in package.json
 "build:css": "sass ./src/input.scss ./src/output.css"
 
 
-## Versiones
+## versiones
 "next": "14.1.4",
 
 "react": "^18",
