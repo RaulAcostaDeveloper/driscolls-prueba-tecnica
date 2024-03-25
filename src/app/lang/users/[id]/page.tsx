@@ -5,16 +5,22 @@ import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import { LanguageContext } from "@/app/languageController";
 
-// @ts-ignore
-export default function UserPage(props) {
+interface DynamicRouteProps {
+    id: string;
+}
+type Props = {
+    params: DynamicRouteProps
+}
+export default function UserPage( {params}: Props) {
     const [user, setUser] = useState<User>();
     const [openDetails, setOpenDetail] = useState(false);
 
-    useEffect(()=>{        
-        const { id } = props.params;        
+    useEffect(()=>{
+        const { id } = params;
         const userData = getUserById(Number(id));
         setUser(userData);
     },[]);
+
     // @ts-ignore
     const { language } = useContext(LanguageContext);
     return (
