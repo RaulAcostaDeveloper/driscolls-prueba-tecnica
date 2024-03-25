@@ -1,8 +1,9 @@
 'use client'
 import { ErrorScreen } from "@/app/Components/ErrorScreen";
 import { NewType, getNewById } from "@/data/news";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
+import { LanguageContext } from "@/app/languageController";
 
 export default function NewPage({...props}) {
     const [newData, setNewData] = useState<NewType>();
@@ -13,7 +14,8 @@ export default function NewPage({...props}) {
         const data = getNewById(Number(id));
         setNewData(data);
     },[]);
-
+    // @ts-ignore
+    const { language } = useContext(LanguageContext);
     return (
         <div className="NewPage">
             <div className="portadaContainer">
@@ -27,11 +29,11 @@ export default function NewPage({...props}) {
                                 <h2>{ newData.title }</h2>
                             </div>
                             <div className="releaseDate">
-                                <p>Release date: { newData.date }</p>
+                                <p>{ language.PUB_DATE }: { newData.date }</p>
                             </div>
                             <div className="buttonContainer">
                                 <button onClick={ () => setShowMore(!showMore) }>
-                                    { showMore ? <span>Hide info</span>: <span>Show more</span> }
+                                    { showMore ? <span>{ language.HIDE_INFO }</span>: <span>{ language.SHOW_MORE }</span> }
                                 </button>
                             </div>
                             { showMore &&

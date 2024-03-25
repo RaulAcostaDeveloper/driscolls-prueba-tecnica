@@ -2,9 +2,10 @@
 import { getUsers } from "@/data/users";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { UserForm } from "./UserForm";
 import { DeleteUserModal } from "./DeleteUserModal";
+import { LanguageContext } from "@/app/languageController";
 
 export default function UsersPage() {
     const [showForm, setShowForm] = useState(false);
@@ -26,14 +27,15 @@ export default function UsersPage() {
         setIsOpenDeleteUserModal(true);
         setDeletingId(id);
     }
-    
+    // @ts-ignore
+    const { language } = useContext(LanguageContext);
     return (
         <div className="UsersPage">
-            <h1>Users page</h1>
+            <h1>{language.USERS_MODULE}</h1>
             <div className="newStyleTableContainer">
                 <div className="innerNewStyleTable">
                     <div className="inner">
-                        <button className="createNewUserButton" onClick={ () => handleClickCreateNewUser() }>Create a new user</button>
+                        <button className="createNewUserButton" onClick={ () => handleClickCreateNewUser() }>{ language.CREATE_USER }</button>
                         { users.map( (user, index) => 
                             <div className="userInner" key={index}>
                                 <Image className="userImage" src={user.srcImage} alt="user image" width={50} height={50}/>
@@ -41,13 +43,13 @@ export default function UsersPage() {
                                     <div>
                                         <div className="name">{user.name}</div>
                                         <div>
-                                            <button className="buttonColumn" title="Edit user" onClick={ () => handleClickEditUser(user.id) }>
+                                            <button className="buttonColumn" title={ language.EDIT_USER } onClick={ () => handleClickEditUser(user.id) }>
                                                 <Image src={'/icons/edit.png'} alt="Edit icon" width={30} height={30}/>
                                             </button>
-                                            <Link  className="buttonColumn" href={'/lang/users/' + user.id} title="View user">
+                                            <Link  className="buttonColumn" href={'/lang/users/' + user.id} title={ language.VIEW_USER }>
                                                 <Image src={'/icons/goTo.png'} alt="View icon" width={30} height={30}/>
                                             </Link>
-                                            <button className="buttonColumn" title="Delete user" onClick={ () => handleClickDeleteUser(user.id) }>
+                                            <button className="buttonColumn" title={ language.DELETE_USER } onClick={ () => handleClickDeleteUser(user.id) }>
                                                 <Image src={'/icons/delete.png'} alt="Delete icon" width={30} height={30}/>
                                             </button>
                                         </div>

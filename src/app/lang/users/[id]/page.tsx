@@ -1,18 +1,21 @@
 'use client'
 import { ErrorScreen } from "@/app/Components/ErrorScreen";
 import { User, getUserById } from "@/data/users";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
+import { LanguageContext } from "@/app/languageController";
 
 export default function UserPage({...props}) {
     const [user, setUser] = useState<User>();
+    const [openDetails, setOpenDetail] = useState(false);
 
     useEffect(()=>{
         const { id } = props.params;        
         const userData = getUserById(Number(id));
         setUser(userData);
     },[]);
-    
+    // @ts-ignore
+    const { language } = useContext(LanguageContext);
     return (
         <div className="UserPage">
             <div className="portadaContainer">
@@ -26,7 +29,13 @@ export default function UserPage({...props}) {
                     </div>
                     <div className="details">
                         <div className="inner">
-                            <button className="buttonForSomething">User details</button>
+                            <button className="buttonForSomething" onClick={ ()=> setOpenDetail(!openDetails) }>{ language.USER_DETAILS }</button>
+                            { openDetails &&
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                    Dolorem molestiae ipsa, deleniti voluptates nesciunt nobis. 
+                                    Molestiae, provident. Cumque nam inventore velit laborum? 
+                                    Suscipit delectus placeat tempora quibusdam quis deleniti aliquam?</p>
+                            }
                         </div>
                     </div>
                 </>

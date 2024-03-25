@@ -1,5 +1,6 @@
+import { LanguageContext } from "@/app/languageController";
 import { addUser, editUserById, getUserById, getUsers } from "@/data/users";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 type Props = {
     editingId: number|null,
@@ -41,30 +42,31 @@ export const UserForm = ({ setShowForm, editingId }: Props) => {
             console.error('handleEditUser: Cant edit the user with the id: ' + editingId);
         }
     }
-
+    // @ts-ignore
+    const { language } = useContext(LanguageContext);
     return (
         <div className="userForm">
             <div className="inner">
                 <button className="buttonClose" onClick={ () => setShowForm(false) }>X</button>
                 { editingId != null ? 
-                    <h3>Edit an user</h3>
+                    <h3>{ language.EDIT_AN_USER}</h3>
                     :
-                    <h3>Create new user</h3>
+                    <h3>{ language.CREATE_USER }</h3>
                 }
                 <div className="form">
-                    <h4>Name</h4>
+                    <h4>{ language.NAME }</h4>
                     <input
                         type="text"
-                        placeholder="User name"
+                        placeholder={language.PLEASE_PROVIDE_NAME }
                         value={ nameForm }
                         onChange={ (e) => setNameForm(e.target.value) }/>
-                    { nameError && <p className="error">Please provide a name</p>}
+                    { nameError && <p className="error">{ language.PLEASE_PROVIDE_NAME }</p>}
                 </div>
                 <div className="containerButton">
                     { editingId != null ? 
-                        <button onClick={ () => handleEditUser() } disabled = { nameError? true : false }>Edit user</button>
+                        <button onClick={ () => handleEditUser() } disabled = { nameError? true : false }>{ language.EDIT_USER }</button>
                         :
-                        <button onClick={ () => handleCreateUser() } disabled = { nameError? true : false }>Create user</button>
+                        <button onClick={ () => handleCreateUser() } disabled = { nameError? true : false }>{ language.CREATE_USER }</button>
                     }
                 </div>
             </div>

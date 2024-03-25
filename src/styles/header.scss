@@ -1,96 +1,106 @@
-.Header {
-    display: flex;
-    align-items: start;
-    height: 45px;
-    position: relative;
+.HeaderContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1;
-    .buttonMenu {
-        background-color: transparent;
-        border: none;
-        margin-left: 10px;
-        padding-top: 10px;
-        z-index: 1;
-    }
-    .imgContainer {
-        position: absolute;
-        width: 100%;
+    .Header {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        .headerImg {
-            width: 150px;
-            height: 45px;
+        align-items: start;
+        height: 45px;
+        position: relative;
+        .buttonMenu {
+            background-color: transparent;
+            border: none;
+            margin-left: 10px;
+            padding-top: 10px;
+            z-index: 1;
         }
-    }
-    .menuScreen {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: $grayBorder;
-        z-index: 2;
-        cursor: pointer;
-        .inner {
-            height: 100%;
-            width: 280px;
-            background-color: white;
-            box-shadow: 4px 4px $grayBorder;
-            .header {
-                display: flex;
-                align-items: center;
-                border-bottom: 1px solid wheat;
-                background-color: wheat;
-                padding-top: 20px;
-                padding-bottom: 20px;
+        .imgContainer {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .headerImg {
+                width: 150px;
+                height: 45px;
             }
-            .section {
-                border-bottom: 1px solid wheat;
-                width: 100%;
-                display: flex;
-                justify-content: left;
-                align-items: center;
-                text-decoration: none;
-                color: black;
-                padding-top: 10px;
-                padding-bottom: 10px;
-            }
-            .section:hover {
-                background-color: wheat;
-            }
-            img {
-                margin-left: 10px ;
-                margin-right: 20px;
+        }
+        .menuScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: $grayBorder;
+            z-index: 2;
+            cursor: pointer;
+            .inner {
+                height: 100%;
+                width: 280px;
+                background-color: white;
+                box-shadow: 4px 4px $grayBorder;
+                .header {
+                    display: flex;
+                    align-items: center;
+                    border-bottom: 1px solid wheat;
+                    background-color: wheat;
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                }
+                .section {
+                    border-bottom: 1px solid wheat;
+                    width: 100%;
+                    display: flex;
+                    justify-content: left;
+                    align-items: center;
+                    text-decoration: none;
+                    color: black;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+                .section:hover {
+                    background-color: wheat;
+                }
+                img {
+                    margin-left: 10px ;
+                    margin-right: 20px;
+                }
             }
         }
     }
 }
 @include tablet {
-    .Header {
-        height: 91px;
-        .imgContainer {
-            .headerImg {
-                width: 300px;
-                height: 91px;
+    .HeaderContainer {
+        .Header {
+            height: 91px;
+            .imgContainer {
+                .headerImg {
+                    width: 300px;
+                    height: 91px;
+                }
             }
         }
     }
 }
 @include laptop {
-    .Header {
-        .menuScreen {
-            .inner {
-                width: 380px;
-                h3 {
-                    font-size: 20px;
-                    margin-left: 30px;
-                }
-                img {
-                    margin-left: 10px;
-                }
-                .section {
-                    font-size: 20px;
-                    height: 60px;
+    .HeaderContainer {
+        .Header {
+            .menuScreen {
+                .inner {
+                    width: 380px;
+                    h3 {
+                        font-size: 20px;
+                        margin-left: 30px;
+                    }
+                    img {
+                        margin-left: 10px;
+                    }
+                    .section {
+                        font-size: 20px;
+                        height: 60px;
+                    }
                 }
             }
         }

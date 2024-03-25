@@ -16,32 +16,47 @@ h1 {
   text-align: center;
 }
 
-.Header {
+.UserPage, .UsersPage, .NewsPage, .NewPage {
+  margin-top: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+  .UsersPage, .NewsPage, .NewPage {
+    margin-top: 100px;
+  }
+}
+.HeaderContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+.HeaderContainer .Header {
   display: flex;
   align-items: start;
   height: 45px;
   position: relative;
-  z-index: 1;
 }
-.Header .buttonMenu {
+.HeaderContainer .Header .buttonMenu {
   background-color: transparent;
   border: none;
   margin-left: 10px;
   padding-top: 10px;
   z-index: 1;
 }
-.Header .imgContainer {
+.HeaderContainer .Header .imgContainer {
   position: absolute;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.Header .imgContainer .headerImg {
+.HeaderContainer .Header .imgContainer .headerImg {
   width: 150px;
   height: 45px;
 }
-.Header .menuScreen {
+.HeaderContainer .Header .menuScreen {
   position: fixed;
   top: 0;
   left: 0;
@@ -51,13 +66,13 @@ h1 {
   z-index: 2;
   cursor: pointer;
 }
-.Header .menuScreen .inner {
+.HeaderContainer .Header .menuScreen .inner {
   height: 100%;
   width: 280px;
   background-color: white;
   box-shadow: 4px 4px rgba(19, 19, 19, 0.185);
 }
-.Header .menuScreen .inner .header {
+.HeaderContainer .Header .menuScreen .inner .header {
   display: flex;
   align-items: center;
   border-bottom: 1px solid wheat;
@@ -65,7 +80,7 @@ h1 {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-.Header .menuScreen .inner .section {
+.HeaderContainer .Header .menuScreen .inner .section {
   border-bottom: 1px solid wheat;
   width: 100%;
   display: flex;
@@ -76,35 +91,35 @@ h1 {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.Header .menuScreen .inner .section:hover {
+.HeaderContainer .Header .menuScreen .inner .section:hover {
   background-color: wheat;
 }
-.Header .menuScreen .inner img {
+.HeaderContainer .Header .menuScreen .inner img {
   margin-left: 10px;
   margin-right: 20px;
 }
 
 @media only screen and (min-width: 768px) {
-  .Header {
+  .HeaderContainer .Header {
     height: 91px;
   }
-  .Header .imgContainer .headerImg {
+  .HeaderContainer .Header .imgContainer .headerImg {
     width: 300px;
     height: 91px;
   }
 }
 @media only screen and (min-width: 1024px) {
-  .Header .menuScreen .inner {
+  .HeaderContainer .Header .menuScreen .inner {
     width: 380px;
   }
-  .Header .menuScreen .inner h3 {
+  .HeaderContainer .Header .menuScreen .inner h3 {
     font-size: 20px;
     margin-left: 30px;
   }
-  .Header .menuScreen .inner img {
+  .HeaderContainer .Header .menuScreen .inner img {
     margin-left: 10px;
   }
-  .Header .menuScreen .inner .section {
+  .HeaderContainer .Header .menuScreen .inner .section {
     font-size: 20px;
     height: 60px;
   }
@@ -121,14 +136,14 @@ h1 {
   align-items: center;
 }
 .userForm .inner {
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   background-color: white;
   width: 300px;
   min-height: 200px;
   position: relative;
   border-radius: 4px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 .userForm .inner .buttonClose {
   background-color: brown;
@@ -336,6 +351,7 @@ h1 {
   min-height: 300px;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   border-radius: 4px;
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
@@ -484,6 +500,25 @@ h1 {
   .NewPage .newsContainer .newInside .imageBlock {
     width: 50%;
   }
+}
+.languageButton {
+  transition: 0.2s;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  background-color: transparent;
+  border: 2px solid black;
+}
+
+.languageButton:hover {
+  background-color: black;
+  color: white;
 }
 
 /*# sourceMappingURL=output.css.map */

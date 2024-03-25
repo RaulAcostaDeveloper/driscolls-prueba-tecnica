@@ -12,3 +12,11 @@ button {
 h1 {
     text-align: center;
 }
+.UserPage, .UsersPage, .NewsPage, .NewPage {
+    margin-top: 50px;
+}
+@include tablet {
+    .UsersPage, .NewsPage, .NewPage {
+        margin-top: 100px;
+    }
+}

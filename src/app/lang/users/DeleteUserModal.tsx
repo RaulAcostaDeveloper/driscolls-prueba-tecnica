@@ -1,5 +1,6 @@
+import { LanguageContext } from "@/app/languageController";
 import { deleteUserById, getUserById } from "@/data/users"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 
 type Props = {
     deletingId: number|null,
@@ -23,13 +24,15 @@ export const DeleteUserModal = ({ deletingId, setIsOpenDeleteUserModal }: Props)
             console.error('handleYes: Cant delete the user with the id: ' + deletingId);
         }
     }
+    // @ts-ignore
+    const { language } = useContext(LanguageContext);
     return (
         <div className="containerDeleteUserModal">
             <div className="inner">
-                <h3>¿You want to delete the user { userName }?</h3>
+                <h3>¿{ language.WANT_TO_DELETE }{ userName }?</h3>
                 <div className="containerButtons">
-                    <button className="yesButton" onClick={ () => handleYes() }>Yes</button>
-                    <button className="noButton" onClick={ () => setIsOpenDeleteUserModal(false) }>No</button>
+                    <button className="yesButton" onClick={ () => handleYes() }>{ language.YES }</button>
+                    <button className="noButton" onClick={ () => setIsOpenDeleteUserModal(false) }>{ language.NOT }</button>
                 </div>
             </div>
         </div>
