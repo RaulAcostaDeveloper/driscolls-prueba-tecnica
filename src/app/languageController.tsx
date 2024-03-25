@@ -11,7 +11,7 @@ export const LanguageController = ({
   }>) => {
 
     const [english, setEnglish] = useState(false);
-    const [language, setLanguage ] = useState<StringMap>();
+    const [language, setLanguage ] = useState<StringMap>(englishCopys);
 
     useEffect(()=>{
         if (english) {

@@ -8,10 +8,10 @@ import { useContext } from "react";
 export default function NewsPage() {
     const news = getNews();
     // @ts-ignore
-    const { language } = useContext(LanguageContext);
+    const { language } = useContext(LanguageContext);    
     return (
         <div className="NewsPage">
-            <h1>{  language.NEWS_MODULE }</h1>
+            <h1>{ language.NEWS_MODULE }</h1>
             <div className="newStyleTableContainer">
                 <div className="innerNewStyleTable">
                     <div className="inner">
